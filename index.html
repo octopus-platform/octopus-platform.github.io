@@ -39,6 +39,73 @@ data at their disposal. We additionally make an effort to provide
 clean interfaces to extend the platform, to enable research on new
 methods for code analysis, and adaption to the unique requirements of
 the programs under inspection.</p>
+
+<h2>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h2>
+
+<p>To date, security systems focus mainly on the detection of known
+vulnerabilities, attacks, and malicious code. With attackers in mind
+who concentrate on compromising a large number of hosts with minimum
+effort, and no particular target in mind, these strategies seem
+reasonable.</p>
+
+<p>On the other end of the spectrum, organizations may be targeted by
+attackers willing to invest time and resources to compromise that
+organization's network in particular, or even the devices of one
+specific individual. While realistically speaking, an attacker
+investing above a certain threshold will succeed, it is worth asking
+whether we can find a middle ground between protecting against known
+vulnerabilities only, and auditing for vulnerabilities day and night.</p>
+
+<p>In essence, it must be hard to identify new vulnerabilities in the
+programs we deploy because flaws that are obvious no longer exist. An
+attacker should be unable to identify a previously unknown
+vulnerability simply by finding a variation of a known flaw, or by
+scanning for vulnerabilities very typical for the type of application
+or the libraries it uses.</p>
+
+<p>This is not trivial. Today, successful identification of even simple
+vulnerabilities and assessing of exploitability are tasks that
+increasingly require a deep understanding of program
+specifics. Experienced vulnerability researchers therefore suggest to
+review both the program-specific APIs for quirks, as well as the
+security history for common programming patterns that caused
+vulnerabilities (see, for example, Chris Rohlf's BlackHat training on
+vulnerability discovery (<a href="https://github.com/struct/mms">https://github.com/struct/mms</a>) and Dowd et
+al.'s "The Art of Software Security Assessment".)</p>
+
+<p>It is therefore not uncommon today to see articles about vulnerability
+discovery and exploitation that focus entirely on the
+security-relevant internals of a specific program (see Ilja van
+Sprundel's work on Windows device drivers, argp's work on Firefox, or
+huku's work on Flash). Knowledge of this kind is acquired in an often
+painful research process that uncovers information limited in value to
+a particular program, but absolutely required to identify relevant
+vulnerabilities in it. This information is publicly available to
+attackers and defenders alike and provides a starting point for
+analysis.</p>
+
+<h2>
+<a id="a-code-intelligence-system" class="anchor" href="#a-code-intelligence-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A Code Intelligence System</h2>
+
+<p>To date, there is no system to concentrate what we know about the
+typical vulnerabilities associated with programs, their libraries, and
+programming languages. Moreover, there are no mechanisms to preserve
+and share this information for other analysts to avoid flaws in the
+future. Finally, no way of automatically exploiting this information
+programmatically exists, that is, to build tools for semi-automated
+vulnerability assessment that leverage this information.</p>
+
+<p>The long-term objective of the Octopus project is to develop a novel
+type of security component: a code intelligence system. The
+system keeps track of the program code developed or used by an
+organization, along with its development history, and in particular,
+security patches, as well as knowledge about vulnerable programming
+patterns accumulated over the past. With this information at hand, it
+repeatedly mines programs for code that seems worth auditing, along
+with useful hints on the difficulties associated with the use of the
+employed APIs. As such, it provides a central point for code analysts
+to share their knowledge, and to extract it for use in their tools.</p>
       </section>
     </div>
 
