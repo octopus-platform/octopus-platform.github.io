@@ -1,6 +1,6 @@
 ---
 title: test
-layout: default
+layout: page
 ---
 
 # test title
