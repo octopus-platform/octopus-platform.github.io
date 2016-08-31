@@ -1,5 +1,5 @@
 ---
-test
+title: test
 ---
 
 # test title
